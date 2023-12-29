@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-start">Name</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td class="text-start">{{product["name"]}}</td>
+                <td class="text-end">{{product["shares"]}}</td>
+                <td class="text-end">{{product["price"] | usd}}</td>
+                <td class="text-end">{{product["prices"] | usd}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        
+    </table>
+{% endblock %}
